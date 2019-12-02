@@ -1,0 +1,48 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+
+
+
+<div class="container">
+  <div class="jumbotron" style="background-color:#8429d8 !important;">
+  <center> <h2 style="color:#fff;"><a href="/">Gender</a></h2> </center>
+  </div>
+</div>
+
+<div class="container card text-center">
+  <div class="card-header">
+    Results
+  </div>
+  <div class="card-body" style="background-color:#8429d8;">
+    <h5 class="card-title">Gender Classifier</h5>
+    <hr/>
+    <p class="card-text"><div class="alert alert-danger" role="alert">
+  {{ name }}
+</div></p>
+
+    {% if prediction ==  0 %}
+    <p class="card-text"><div class="alert alert-danger" role="alert">
+  Female
+</div></p>
+    <a href="/" class="btn btn-danger">Female</a>
+     {% elif prediction == 1 %}
+	<p class="card-text"><div class="alert alert-danger" role="alert">
+  Male
+</div></p>
+    <a href="/" class="btn btn-primary">Male</a>
+    {% endif%}
+  </div>
+
+  <div class="card-footer text-muted">
+   
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='css/styles.css')}}">
+{% endblock %}
